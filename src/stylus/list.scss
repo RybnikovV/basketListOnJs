@@ -1,0 +1,25 @@
+.list {
+    margin: 0 auto;
+    width: 800px;
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        margin-right: 30px;
+        width: 80px;
+        background-image: url(./../assets/img/apple.jpg);
+        & > img {
+            height: 40px;
+        }
+    }
+
+    &__item-actions {
+        display: flex;
+    }
+}

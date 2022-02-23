@@ -1,0 +1,109 @@
+@import "~normalize.css";
+@import "fonts.css";
+@import "bootstrap.css";
+
+:root {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+h3 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+h5 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+h5 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.btn {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #6c757d;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn_accent {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #0d6efd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn_info {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #0d6efd;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn_secondary {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #6C757D;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn_success{
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #28A745;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn_warrning {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #FFC107;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.btn_danger {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #DC3545;
+    color: #fff;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.aligin-center {
+    align-items: center !important;
+}
+
+.justify-right {
+    justify-content: right !important;
+}
