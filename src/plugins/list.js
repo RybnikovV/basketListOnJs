@@ -5,7 +5,7 @@ export class List {
 
     constructor(lists, options) {
         this.data = lists
-        this._createList(lists)
+        this.listHTML = this._createList(lists)
         document.getElementById(options.id).append(this.listHTML)
 
         this.listHTML.addEventListener('click', (event) => {
@@ -33,13 +33,13 @@ export class List {
     }
 
     _createList(lists) {
-        this.listHTML = document.createElement('div')
-        this.listHTML.classList.add('list')
+        const listHTML = document.createElement('div')
+        listHTML.classList.add('list')
 
         lists.forEach(listItem => {
             this.sumPrice += listItem.count * listItem.price
 
-            this.listHTML.insertAdjacentHTML('beforeend', 
+            listHTML.insertAdjacentHTML('beforeend',
                 `<div class="list__item">
                     <div class="d-flex aligin-center list__item-content">
                         <div class="list__img">
@@ -58,7 +58,9 @@ export class List {
           })
 
 
-        this.listHTML.insertAdjacentHTML('beforeend', `<div class="list__item justify-right" data-list-sum-price="listSum">ИТОГ:<b>${this.sumPrice}</b></div>`)
+        listHTML.insertAdjacentHTML('beforeend', `<div class="list__item justify-right" data-list-sum-price="listSum">ИТОГ:<b>${this.sumPrice}</b></div>`)
+
+        return listHTML
     }
 
     _createModal(lists) {
@@ -76,7 +78,7 @@ export class List {
             return item.id !== elem.dataset.listDeleteItem
         })
 
-        elem.closest('.list__item').classList.add('hidden')
+        elem.closest('.list__item').remove()
     }
 
     cnageCountValue(elem) {
@@ -103,5 +105,3 @@ export class List {
         this.listHTML.querySelector('[data-list-sum-price]').innerHTML = `ИТОГ:<b>${this.sumPrice}</b>`
     }
 }
-
-// 1. при загрузке 25.02.22 1:44 данные запрашиваются за период 24.02.22-25.02.22 но в дискретности показывается 25.02.22

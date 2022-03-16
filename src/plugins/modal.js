@@ -1,15 +1,13 @@
 export class Modal {
-    constructor(options) {
+    constructor(options) { //dataLabel, title?, content?, width?: string, footerBtns
         this._options = options
         this._modal = this._getModalBody(options)
-        // console.log(this._modal)
         const btns = document.querySelectorAll(`div[data-modalInfo=${options.dataLabel}]`)
 
         btns.forEach(btn => {
-            // btn.addEventListener('click', this._modalHandler.bind(this))
-            btn.addEventListener('click', ()=>this._modalOpen())
+            btn.addEventListener('click', () => this.open())
         })
-        this._modal.addEventListener('click', e => {
+        this._modal.addEventListener('click', e => {//прием называется делегирование событий
             if (e.target.dataset.modalevent && e.target.dataset.modalevent === 'close') this.close()
         })
         document.body.append(this._modal)
@@ -25,7 +23,7 @@ export class Modal {
                     <div class="modal__content" style= width:${options.width ?? "500px"}>
                         <div class="modal__header">
                             <h5>
-                                ${options.title ?? 'Modal title'}
+                                ${options.title ?? 'Modal title'} // оператор нулевого слияния
                             </h5>
                             <div class="btn" data-modalEvent="close">
                                 <i class="fa-solid fa-4"></i>
@@ -43,7 +41,7 @@ export class Modal {
             footerContainer.classList.add('modal__footer')
 
             options.footerBtns.forEach(footerBtn => {
-                let btn = document.createElement('div')
+                const btn = document.createElement('div')
                 btn.textContent = footerBtn.title
                 btn.className = `btn ${footerBtn.class ? footerBtn.class : 'btn_secondary'}`
                 btn.addEventListener('click', () => footerBtn.handler())
@@ -53,10 +51,6 @@ export class Modal {
         }
 
         return resultModal
-    }
-
-    _modalOpen() {
-        this.open()
     }
 
     close() {
